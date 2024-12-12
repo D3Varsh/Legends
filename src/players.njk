@@ -1,0 +1,21 @@
+---
+title: "Players"
+layout: layouts/default.njk
+pagination:
+  data: collections.players
+  size: 1
+  alias: player
+permalink: "player/{{ player.slug }}/index.html"
+---
+
+<div class="player-details">
+  <h1>{{ player.title }}</h1>
+
+  {% if player.image %}
+    <img src="{{ player.image}}" alt="{{ player.title }}" class="player-image">
+  {% endif %}
+
+  <div class="player-description">
+    {{ player.description | safe}}
+  </div>
+</div>

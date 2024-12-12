@@ -1,0 +1,9 @@
+To run the project please use "npm run dev"
+
+The Project consits of some basic level thing I have tried to run it and found very difficult but somehow at the end its working I might be 
+able to do more thing but its too late to do so.
+
+Working Things
+1. The data is fetching from contentful and loading onto the site.
+2. Got the links to all the page.
+3. all the pages are loading properly.

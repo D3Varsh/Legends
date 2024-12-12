@@ -1,0 +1,74 @@
+{
+  "players": [
+    {
+      "title": "Donald Bradman",
+      "slug": "donald-bradman",
+      "image": "/images/donald-bradman.jpg", 
+      "description": "A legendary Australian cricketer, widely regarded as the greatest batsman of all time.",
+      "overview": "Donald Bradman revolutionized cricket with his batting skills, setting numerous records that remain unbroken.",
+      "achievements": [
+        "Highest batting average in Test cricket",
+        "Test career spanning over 20 years"
+      ],
+      "legacy": "Regarded as the greatest cricketer of all time, with a profound influence on the game.",
+      "date": "1908-08-27T00:00:00Z",  
+      "url": "/player/post1/"
+    },
+    {
+      "title": "Sachin Tendulkar",
+      "slug": "sachin-tendulkar",
+      "image": "/images/sachin-tendulkar.jpg",
+      "description": "Indian cricketer, considered one of the greatest batsmen in the history of cricket.",
+      "overview": "Sachin Tendulkar's career spanned over two decades, during which he became the highest run-scorer in ODI and Test cricket.",
+      "achievements": [
+        "First player to score a double century in an ODI",
+        "Most runs in both ODIs and Tests"
+      ],
+      "legacy": "Tendulkar is revered as a cricketing legend, a symbol of excellence in cricket and sportsmanship.",
+      "date": "1973-04-24T00:00:00Z",
+      "url": "/player/post2/"
+    },
+    {
+      "title": "Viv Richards",
+      "slug": "vivian-richards",
+      "image": "/images/viv-richards.jpg",
+      "description": "West Indian cricketer, known for his attacking style and powerful batting.",
+      "overview": "Viv Richards' aggressive batting redefined cricket, setting the standard for modern-day power hitters.",
+      "achievements": [
+        "One of the highest strike rates in ODI cricket",
+        "Captain of the West Indies team during a successful era"
+      ],
+      "legacy": "Richards was a pioneer of attacking cricket, influencing generations of cricketers with his fearless approach.",
+      "date": "1952-03-07T00:00:00Z",
+      "url": "/player/post3/"
+    },
+    {
+      "title": "Brian Lara",
+      "slug": "brian-lara",
+      "image": "/images/brian-lara.jpg",
+      "description": "West Indian cricketer, known for holding the record for the highest individual score in a Test match.",
+      "overview": "Brian Lara's elegant batting style and record-breaking scores made him one of the finest batsmen of his era.",
+      "achievements": [
+        "Highest individual score in a Test match (400*)",
+        "One of the few to score over 10,000 runs in both Tests and ODIs"
+      ],
+      "legacy": "Lara is considered one of the greatest batsmen in the history of cricket, particularly known for his ability to play under pressure.",
+      "date": "1969-05-02T00:00:00Z",
+      "url": "/player/post5/"
+    },
+    {
+      "title": "Shane Warne",
+      "slug": "shane-warne",
+      "image": "/images/shane-warne.jpg",
+      "description": "Australian cricketer, widely regarded as one of the greatest bowlers in the history of the game.",
+      "overview": "Shane Warne revolutionized leg-spin bowling, taking over 700 wickets in Test cricket and leaving an indelible mark on the game.",
+      "achievements": [
+        "Most wickets taken in Test matches by an Australian",
+        "Revolutionized the art of leg-spin bowling"
+      ],
+      "legacy": "Warne's impact on cricket extends beyond statistics; he changed the way leg-spin bowling was viewed and played.",
+      "date": "1969-09-13T00:00:00Z",
+      "url": "/player/post4/"
+    }
+  ]
+}

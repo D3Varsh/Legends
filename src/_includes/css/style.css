@@ -1,0 +1,209 @@
+/* General Body and Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Individual Post Styles */
+.post {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.post p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Player Thumbnail Styles */
+.player-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Player Grid Layout */
+.players {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Two items per row */
+    gap: 20px;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}
+
+.pagination .current {
+    background-color: #333;
+    color: rgb(33, 164, 182);
+    pointer-events: none;
+}
+
+.pagination .active {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsive Styles for Players Grid */
+@media (max-width: 768px) {
+    .players {
+        grid-template-columns: 1fr;  /* One item per row on smaller screens */
+    }
+}
+
+/* General Image Styles */
+img {
+    max-width: 30%; /* Ensures images are responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for all images */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px 0; /* Adds vertical spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover Effect for Images */
+img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Specific Styles for Player Thumbnails */
+.player-thumbnail {
+    width: 150px; /* Fixed size for player thumbnails */
+    height: 150px;
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+    border: 4px solid #e76f51; /* Terracotta border for highlight */
+    border-radius: 50%; /* Circular shape */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.player-thumbnail:hover {
+    transform: scale(1.1); /* Enlarged zoom for thumbnails */
+    border-color: #2a9d8f; /* Changes border color to teal on hover */
+}
+
+/* Grid Layout for Images */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Spacing between images */
+    margin: 20px 0;
+}
+
+.image-gallery img {
+    border-radius: 10px; /* Slightly rounded corners for gallery images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: translateY(-5px); /* Moves image slightly upward on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Featured Image Styles */
+.featured-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover; /* Ensures large images don't stretch */
+    border-radius: 15px; /* Softer corners for larger images */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Prominent shadow for emphasis */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.featured-image:hover {
+    transform: scale(1.02); /* Slight enlargement */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Dramatic shadow on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: 1fr; /* Single-column layout for smaller screens */
+    }
+
+    .player-thumbnail {
+        width: 100px; /* Smaller thumbnails on mobile */
+        height: 100px;
+    }
+}
