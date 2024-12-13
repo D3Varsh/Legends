@@ -13,12 +13,13 @@ module.exports = async () => {
     order: 'sys.createdAt',
   });
 
-  // Transform the fetched data
+  // Transform the fetched data and add permalink
   return response.items.map(player => ({
     title: player.fields.title,
     slug: player.fields.slug,
     image: player.fields.image?.fields?.file?.url,
     description: player.fields.description,
-    date: player.fields.date ,
+    date: player.fields.date,
+    permalink: `/player/${player.fields.slug}/index.html`  // Add permalink to data
   }));
 };

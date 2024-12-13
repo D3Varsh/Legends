@@ -1,10 +1,7 @@
-title: "Player"
-layout: layouts/pagination.njk
-pagination:
-  data: collections.players
-  size: 1
-  alias: player
-permalink: "/player/{{ player.slug }}/"
+---
+title: "{{ player.title }}"
+layout: layouts/default.njk
+permalink: "/player/{{ player.slug }}/index.html"
 ---
 
 <div class="player-details">
@@ -15,6 +12,8 @@ permalink: "/player/{{ player.slug }}/"
   {% endif %}
 
   <div class="player-description">
-    {{ player.description | safe}}
+    {{ player.description | safe }}
   </div>
+
+  <a href="/players/">Back to Players List</a>
 </div>
