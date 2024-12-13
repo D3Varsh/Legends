@@ -33,7 +33,7 @@ exports.handler = async (event) => {
           {
             to: [
               { email: 'devarsh4455@gmail.com' },
-              { email: 'adam.kunz+inft@durhamcollege.ca' },
+              // { email: 'adam.kunz+inft@durhamcollege.ca' },
             ],
             subject: `[Contact Form] ${subject}`,
           },

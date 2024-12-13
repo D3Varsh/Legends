@@ -9,34 +9,31 @@ module.exports = function(eleventyConfig) {
   });
 
   // Fetch the player data from Contentful
-  eleventyConfig.addCollection("players", async function() {
-    // Fetch all players from Contentful 
+  eleventyConfig.addCollection("players", async function () {
     const response = await client.getEntries({
-      content_type: "player"  // "player" is the Contentful content type ID
+      content_type: "player"
     });
 
-    // Map the response to an array of players
-    return response.items.map(item => {
+    return response.items.map((item) => {
       return {
         title: item.fields.title,
         slug: item.fields.slug,
         image: item.fields.image ? item.fields.image.fields.file.url : null,
         description: documentToHtmlString(item.fields.description),
         date: item.fields.date,
-        permalink: `/players/{{ slug }}/index.html`,
-        url: `/player/${item.fields.slug}/`  // Link to the individual player page
+        url: `/player/${item.fields.slug}/`
       };
     });
   });
 
-  // Passthrough file copy for static assets (like CSS)   
+  // Passthrough for static assets (like CSS)
   eleventyConfig.addPassthroughCopy("src/_includes/css");
 
-  // Return the default config
+  // Default Eleventy Configuration
   return {
     dir: {
-      input: "src",    // The input directory for your templates
-      output: "dist", // The output directory for the compiled site
+      input: "src",    // Input directory
+      output: "dist",  // Output directory
     },
   };
 };

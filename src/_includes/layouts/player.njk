@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    {% include "partials/header.njk" %}
+
+    <main>
+        <div class="container">
+            <h1>{{ title }}</h1>
+
+            <!-- Loop through the players and display their image and description -->
+            <div class="player">
+                {% for player in pagination.items %}
+                    <div class="player">
+                        <img src="{{ player.data.image }}" alt="{{ player.data.title }}" class="player-thumbnail">
+                        <h2><a href="{{ player.url }}">{{ player.data.title }}</a></h2>
+                        <p>{{ player.data.description | safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>

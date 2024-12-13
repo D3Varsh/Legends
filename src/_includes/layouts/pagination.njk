@@ -13,17 +13,15 @@
         <div class="container">
             <h1>{{ title }}</h1>
 
-            <!-- Players List -->
-            <ul>
+            <!-- Loop through the players and display their image and description -->
+            <div class="players">
                 {% for player in pagination.items %}
-                    <li>
-                        <a href="{{ player.url }}">
-                            {{ player.title }}
-                        </a>
-                    </li>
+                    <div class="player">
+                        <img src="{{ player.image }}" alt="{{ player.title }}" class="player-thumbnail">
+                        <h2><a href="{{ player.url }}">{{ player.title }}</a></h2>
+                    </div>
                 {% endfor %}
-            </ul>
-
+            </div>
         </div>
 
         <!-- Pagination -->
