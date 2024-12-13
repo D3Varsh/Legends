@@ -31,11 +31,11 @@ exports.handler = async (event) => {
     }
 
     // Set up email API request
-    const emailResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
+    const emailResponse = await fetch('/.netlify/functions/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.SEND_GRID_API}`, // Use environment variable
+        'Authorization': process.env.SEND_GRID_API, // Use environment variable
       },
       body: JSON.stringify({
         personalizations: [
