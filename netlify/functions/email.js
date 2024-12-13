@@ -20,15 +20,13 @@ exports.handler = async (event) => {
       };
     }
 
-    // Hardcoded SendGrid API key
-    const sendGridApiKey = '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';
 
     // Set up email API request
     const emailResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${sendGridApiKey}`,
+          Authorization: `Bearer ${process.env.SEND_GRID_API}`, // Use environment variable
       },
       body: JSON.stringify({
         personalizations: [
