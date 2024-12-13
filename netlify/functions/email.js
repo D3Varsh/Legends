@@ -1,4 +1,7 @@
 const fetch = require('node-fetch');
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 exports.handler = async (event) => {
   try {

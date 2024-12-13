@@ -19,6 +19,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "do": "^0.7.0",
     "node-fetch": "^3.3.2"
   }
 }
