@@ -1,18 +1,30 @@
-/* General Body and Page Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20;
+/* Global Styles */
+* {
+    margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f8ff; /* Light Azure */
     color: #333;
+    line-height: 1.6;
 }
 
 /* Header Styles */
 header {
-    background: #333;
+    background: #ff6347; /* Vivid Tomato */
     color: #fff;
-    padding: 10px 20px;
+    padding: 20px 40px;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 nav {
@@ -22,188 +34,268 @@ nav {
 nav a {
     color: #fff;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 20px;
+    font-size: 1.1rem;
 }
 
 nav a:hover {
+    color: #ffeb3b;  /* Vibrant Yellow for hover effect */
     text-decoration: underline;
 }
 
-/* Main Content Styles */
+/* Main Content */
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2, h3 {
+h2, h3 {
     color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 /* Individual Post Styles */
 .post {
     margin-bottom: 30px;
-    padding: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
+    padding: 25px;
+    background: #f9f9f9;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .post h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #007bff;
+    font-size: 1.8rem;
+    color: #ff4500; /* Orange Red */
+    margin-bottom: 15px;
 }
 
 .post p {
-    line-height: 1.6;
-    color: #555;
+    color: #4a5568;
+    font-size: 1.1rem;
 }
 
 /* Footer Styles */
 footer {
-    background: #333;
+    background: #1e90ff; /* Dodger Blue */
     color: #fff;
     text-align: center;
-    padding: 10px 20px;
+    padding: 20px;
+    font-size: 1rem;
     position: relative;
     bottom: 0;
     width: 100%;
 }
 
-/* Player Thumbnail Styles */
-.player-thumbnail {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 10px;
+/* Button and Form Styles */
+button {
+    background-color: #ff6347; /* Vivid Tomato */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Player Grid Layout */
-.players {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* Two items per row */
+button:hover {
+    background-color: #ff4500; /* Orange Red */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+form label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ff6347;
+}
+
+form input, form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f7fafc;
+    color: #2d3748;
+    transition: border 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #ff6347;
+    outline: none;
 }
 
 /* Pagination Styles */
 .pagination {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    align-items: center;
+    margin: 30px 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-.pagination a {
+.pagination-link {
     display: inline-block;
-    padding: 10px;
+    padding: 12px 20px;
     margin: 0 5px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #38a169;  /* Vibrant green */
+    color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-link:hover {
+    background-color: #2f855a;  /* Darker green */
+    transform: scale(1.05);
+}
+
+.pagination-link.active {
+    background-color: #2b6cb0;  /* Blue for the active page */
+    color: white;
+    pointer-events: none;
+}
+
+.pagination-link.previous,
+.pagination-link.next {
+    background-color: #4c6cbf;  /* Blue shade for 'Previous' and 'Next' */
+    font-weight: 600;
+}
+
+.pagination-link.previous:hover,
+.pagination-link.next:hover {
+    background-color: #3b5f97;  /* Darker blue for hover effect */
+}
+
+.pagination-disabled {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 0 5px;
+    background-color: #e2e8f0;  /* Light grey for disabled */
+    color: #cbd5e0;  /* Soft grey text */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.pagination-disabled:hover {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.pagination .pagination-link:hover,
+.pagination .pagination-disabled:hover {
+    transform: translateY(-2px);  /* Adds a smooth floating effect */
+}
+
+@media (max-width: 768px) {
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pagination-link {
+        margin: 5px 0;
+    }
+}
+
+
+/* Contact Page Styles */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form label {
+    font-size: 1rem;
+    color: #333;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    outline: none;
+    border-color: #ff6347;
+}
+
+#contact-form button {
+    background-color: #ff6347;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.pagination a:hover {
-    background-color: #0056b3;
+#contact-form button:hover {
+    background-color: #ff4500;
 }
 
-.pagination .current {
-    background-color: #333;
-    color: rgb(33, 164, 182);
-    pointer-events: none;
+/* Spinner and Response Message */
+#spinner {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff6347;
+    display: none;
 }
 
-.pagination .active {
-    opacity: 0.7;
-    pointer-events: none;
+#response-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff6347;
+    display: none;
 }
 
-/* Responsive Styles for Players Grid */
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-    .players {
-        grid-template-columns: 1fr;  /* One item per row on smaller screens */
+    header h1 {
+        font-size: 2rem;
     }
-}
 
-/* General Image Styles */
-img {
-    max-width: 30%; /* Ensures images are responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners for all images */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 10px 0; /* Adds vertical spacing */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
+    .container {
+        padding: 20px;
+    }
 
-/* Hover Effect for Images */
-img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-/* Specific Styles for Player Thumbnails */
-.player-thumbnail {
-    width: 150px; /* Fixed size for player thumbnails */
-    height: 150px;
-    object-fit: cover; /* Ensures the image fills the container without distortion */
-    border: 4px solid #e76f51; /* Terracotta border for highlight */
-    border-radius: 50%; /* Circular shape */
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.player-thumbnail:hover {
-    transform: scale(1.1); /* Enlarged zoom for thumbnails */
-    border-color: #2a9d8f; /* Changes border color to teal on hover */
-}
-
-/* Grid Layout for Images */
-.image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Spacing between images */
-    margin: 20px 0;
-}
-
-.image-gallery img {
-    border-radius: 10px; /* Slightly rounded corners for gallery images */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.image-gallery img:hover {
-    transform: translateY(-5px); /* Moves image slightly upward on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-}
-
-/* Featured Image Styles */
-.featured-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover; /* Ensures large images don't stretch */
-    border-radius: 15px; /* Softer corners for larger images */
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Prominent shadow for emphasis */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.featured-image:hover {
-    transform: scale(1.02); /* Slight enlargement */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Dramatic shadow on hover */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
     .image-gallery {
-        grid-template-columns: 1fr; /* Single-column layout for smaller screens */
+        grid-template-columns: 1fr;
     }
 
-    .player-thumbnail {
-        width: 100px; /* Smaller thumbnails on mobile */
-        height: 100px;
+    .pagination a {
+        padding: 10px 15px;
     }
 }

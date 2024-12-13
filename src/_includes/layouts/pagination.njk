@@ -1,4 +1,3 @@
-<!-- src/pagination.njk -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +13,17 @@
         <div class="container">
             <h1>{{ title }}</h1>
 
-            <!-- Loop through the players and display their image and description -->
-            <div class="players">
+            <!-- Players List -->
+            <ul>
                 {% for player in pagination.items %}
-                    <div class="player">
-                        <img src="{{ player.image }}" alt="{{ player.title }}" class="player-thumbnail">
-                        <h2><a href="{{ player.url }}">{{ player.title }}</a></h2>
-                    </div>
+                    <li>
+                        <a href="{{ player.url }}">
+                            {{ player.title }}
+                        </a>
+                    </li>
                 {% endfor %}
-            </div>
+            </ul>
+
         </div>
 
         <!-- Pagination -->
@@ -32,8 +33,8 @@
             {% else %}
                 <span class="pagination-disabled">Previous</span>
             {% endif %}
-            
-            <!-- Page Number Links -->
+
+            <!-- Page Numbers -->
             {% for page in pagination.pages %}
                 <a href="{{ page.href }}" class="pagination-link{% if page.active %} active{% endif %}">
                     {{ page.number }}
@@ -48,6 +49,6 @@
         </div>
     </main>
 
-    <link rel="stylesheet" href="/css/style.css">
+    {% include "partials/footer.njk" %}
 </body>
 </html>

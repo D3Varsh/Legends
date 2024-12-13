@@ -21,10 +21,22 @@ permalink: "/player/{{ pagination.pageNumber }}/index.html"
 <!-- Pagination -->
 <div class="pagination">
   {% if pagination.href.previous %}
-    <a href="{{ pagination.href.previous }}">Previous</a>
+    <a href="{{ pagination.href.previous }}" class="pagination-link">Previous</a>
+  {% else %}
+    <span class="pagination-disabled">Previous</span>
   {% endif %}
-  |
+
+  <!-- Page Number Links -->
+  {% for page in pagination.pages %}
+    <a href="{{ page.href }}" class="pagination-link{% if page.active %} active{% endif %}">
+      {{ page.number }}
+    </a>
+  {% endfor %}
+
   {% if pagination.href.next %}
-    <a href="{{ pagination.href.next }}">Next</a>
+    <a href="{{ pagination.href.next }}" class="pagination-link">Next</a>
+  {% else %}
+    <span class="pagination-disabled">Next</span>
   {% endif %}
 </div>
+
