@@ -1,17 +1,18 @@
-exports.handler = async function(event, context) {
-  const fetch = (await import('node-fetch')).default;
-  // Your code continues here...
-};
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
 exports.handler = async (event) => {
+  const fetch = (await import('node-fetch')).default;
+  
+  if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+  }
+
   try {
     if (event.httpMethod !== 'POST') {
       return {
         statusCode: 405,
         body: JSON.stringify({ error: 'Method Not Allowed' }),
+        headers: {
+          'Access-Control-Allow-Origin': '*', // Enable CORS
+        },
       };
     }
 
@@ -23,28 +24,29 @@ exports.handler = async (event) => {
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'All fields are required.' }),
+        headers: {
+          'Access-Control-Allow-Origin': '*', // Enable CORS
+        },
       };
     }
-
 
     // Set up email API request
     const emailResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.SEND_GRID_API}`, // Use environment variable
+        'Authorization': `Bearer ${process.env.SEND_GRID_API}`, // Use environment variable
       },
       body: JSON.stringify({
         personalizations: [
           {
             to: [
               { email: 'devarsh4455@gmail.com' },
-              // { email: 'adam.kunz+inft@durhamcollege.ca' },
             ],
             subject: `[Contact Form] ${subject}`,
           },
         ],
-        from: { email: 'devarsh4455@gmail.com', name: 'Contact Form' }, // Sender email and name
+        from: { email: 'devarsh4455@gmail.com', name: 'Contact Form' },
         content: [
           {
             type: 'text/plain',
@@ -59,17 +61,26 @@ exports.handler = async (event) => {
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Failed to send email', details: errorDetails }),
+        headers: {
+          'Access-Control-Allow-Origin': '*', // Enable CORS
+        },
       };
     }
 
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'Email sent successfully!' }),
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Enable CORS
+      },
     };
   } catch (error) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Internal Server Error', details: error.message }),
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Enable CORS
+      },
     };
   }
 };
