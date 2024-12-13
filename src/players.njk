@@ -1,21 +1,30 @@
 ---
 title: "Players"
-layout: layouts/default.njk
+layout: layouts/pagination.njk
 pagination:
   data: collections.players
-  size: 1
+  size: 2  # Number of players per page
   alias: player
-permalink: "player/{{ player.slug }}/index.html"
+permalink: "/player/{{ pagination.pageNumber }}/index.html"
 ---
+<h1>Players List</h1>
+<ul>
+  {% for player in pagination.items %}
+    <li>
+      <a href="{{ player.url }}">
+        {{ player.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 
-<div class="player-details">
-  <h1>{{ player.title }}</h1>
-
-  {% if player.image %}
-    <img src="{{ player.image}}" alt="{{ player.title }}" class="player-image">
+<!-- Pagination -->
+<div class="pagination">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}">Previous</a>
   {% endif %}
-
-  <div class="player-description">
-    {{ player.description | safe}}
-  </div>
+  |
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}">Next</a>
+  {% endif %}
 </div>

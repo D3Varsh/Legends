@@ -10,7 +10,7 @@ module.exports = function(eleventyConfig) {
 
   // Fetch the player data from Contentful
   eleventyConfig.addCollection("players", async function() {
-    // Fetch all players from Contentful
+    // Fetch all players from Contentful 
     const response = await client.getEntries({
       content_type: "player"  // "player" is the Contentful content type ID
     });
@@ -23,7 +23,8 @@ module.exports = function(eleventyConfig) {
         image: item.fields.image ? item.fields.image.fields.file.url : null,
         description: documentToHtmlString(item.fields.description),
         date: item.fields.date,
-        url: `/player/${item.fields.slug}/`
+        permalink: `/players/{{ slug }}/index.html`,
+        url: `/player/${item.fields.slug}/`  // Link to the individual player page
       };
     });
   });

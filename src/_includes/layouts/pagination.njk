@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/_includes/css/style.css">
 </head>
 <body>
     {% include "partials/header.njk" %}
@@ -18,23 +18,36 @@
             <div class="players">
                 {% for player in pagination.items %}
                     <div class="player">
-                        <img src="{{ player.data.image }}" alt="{{ player.data.title }}" class="player-thumbnail">
-                        <h2><a href="{{ player.url }}">{{ player.data.title }}</a></h2>
-                        <p>{{ player.data.description | safe }}</p>
+                        <img src="{{ player.image }}" alt="{{ player.title }}" class="player-thumbnail">
+                        <h2><a href="{{ player.url }}">{{ player.title }}</a></h2>
                     </div>
                 {% endfor %}
             </div>
         </div>
 
-<!-- Pagination -->
-<div class="pagination">
-  {% if pagination.href.previous %}
-    <a href="{{ pagination.href.previous }}">Previous</a>
-  {% endif %}
-  |
-  {% if pagination.href.next %}
-    <a href="{{ pagination.href.next }}">Next</a>
-  {% endif %}
-</div>
+        <!-- Pagination -->
+        <div class="pagination">
+            {% if pagination.href.previous %}
+                <a href="{{ pagination.href.previous }}" class="pagination-link">Previous</a>
+            {% else %}
+                <span class="pagination-disabled">Previous</span>
+            {% endif %}
+            
+            <!-- Page Number Links -->
+            {% for page in pagination.pages %}
+                <a href="{{ page.href }}" class="pagination-link{% if page.active %} active{% endif %}">
+                    {{ page.number }}
+                </a>
+            {% endfor %}
 
-<link rel="stylesheet" href="/css/style.css">
+            {% if pagination.href.next %}
+                <a href="{{ pagination.href.next }}" class="pagination-link">Next</a>
+            {% else %}
+                <span class="pagination-disabled">Next</span>
+            {% endif %}
+        </div>
+    </main>
+
+    <link rel="stylesheet" href="/css/style.css">
+</body>
+</html>
