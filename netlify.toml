@@ -19,3 +19,6 @@
   #  publish = "dist" # Folder with the static content for _redirect file
 
   ## more info on configuring this file: https://ntl.fyi/file-based-build-config
+
+  [context.production.environment]
+  SEND_GRID_API = "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"
