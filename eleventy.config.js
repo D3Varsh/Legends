@@ -1,17 +1,18 @@
-require('dotenv').config();
-const contentful = require('contentful');
-const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
-module.exports = function(eleventyConfig) {
+require("dotenv").config();
+const contentful = require("contentful");
+const { documentToHtmlString } = require("@contentful/rich-text-html-renderer");
+
+module.exports = function (eleventyConfig) {
   // Contentful Configuration
   const client = contentful.createClient({
-    space:'a70tz55cwe4z',
-    accessToken:'EnlBGBwpy9yKfbK97HDJlrXsBoUZVoLr4bRzX3hDh5s'
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
   // Fetch the player data from Contentful
   eleventyConfig.addCollection("players", async function () {
     const response = await client.getEntries({
-      content_type: "player"
+      content_type: "player",
     });
 
     return response.items.map((item) => {
@@ -21,7 +22,7 @@ module.exports = function(eleventyConfig) {
         image: item.fields.image ? item.fields.image.fields.file.url : null,
         description: documentToHtmlString(item.fields.description),
         date: item.fields.date,
-        url: `/player/${item.fields.slug}/`
+        url: `/player/${item.fields.slug}/`,
       };
     });
   });
@@ -32,8 +33,8 @@ module.exports = function(eleventyConfig) {
   // Default Eleventy Configuration
   return {
     dir: {
-      input: "src",    // Input directory
-      output: "dist",  // Output directory
+      input: "src", // Input directory
+      output: "dist", // Output directory
     },
   };
 };

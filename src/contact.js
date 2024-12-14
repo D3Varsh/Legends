@@ -1,35 +1,4 @@
----
-title: "Contact"
-layout: layouts/default.njk
-permalink: "/contact/"
----
-
-<h1>Contact Us</h1>
-
-<form id="contact-form">
-  <label for="name">Your Name:</label>
-  <input type="text" id="name" name="name" required />
-
-  <label for="phone">Phone Number:</label>
-  <input type="tel" id="phone" name="phone" required />
-
-  <label for="email">E-mail Address:</label>
-  <input type="email" id="email" name="email" required />
-
-  <label for="subject">Subject:</label>
-  <input type="text" id="subject" name="subject" required />
-
-  <label for="message">Message:</label>
-  <textarea id="message" name="message" required></textarea>
-
-  <button type="submit">Submit</button>
-</form>
-
-<div id="spinner" style="display: none;">Sending...</div>
-<div id="response-message" style="display: none;">Thanks for reaching out. We'll get back to you soon!</div>
-
-<script>
-  document.getElementById('contact-form').addEventListener('submit', async function(event) {
+document.getElementById('contact-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const form = document.getElementById('contact-form');
@@ -68,4 +37,3 @@ permalink: "/contact/"
       alert('There was an error sending your message. Please try again.');
     }
   });
-</script>

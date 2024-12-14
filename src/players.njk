@@ -7,9 +7,10 @@ pagination:
   alias: player
 permalink: "/players/{{ pagination.pageNumber }}/index.html"
 ---
+
 <h1>Players List</h1>
 <ul>
-  {% for players in pagination.items %}
+  {% for player in pagination.items %}
     <li>
       <a href="{{ player.url }}">
         {{ player.title }}

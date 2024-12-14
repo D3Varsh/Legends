@@ -7,14 +7,14 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f8ff; /* Light Azure */
-    color: #333;
+    background-color: #BCD3F2; /* Light Blue Background */
+    color: #070707; /* White text for contrast */
     line-height: 1.6;
 }
 
 /* Header Styles */
 header {
-    background: #ff6347; /* Vivid Tomato */
+    background: #80A4ED; /* Navy Blue */
     color: #fff;
     padding: 20px 40px;
     text-align: center;
@@ -27,12 +27,13 @@ header h1 {
     letter-spacing: 1px;
 }
 
+/* Navigation Styles */
 nav {
     margin-top: 10px;
 }
 
 nav a {
-    color: #fff;
+    color: #395C6B;
     text-decoration: none;
     margin: 0 20px;
     font-size: 1.1rem;
@@ -40,7 +41,7 @@ nav a {
 
 nav a:hover {
     color: #ffeb3b;  /* Vibrant Yellow for hover effect */
-    text-decoration: underline;
+ 
 }
 
 /* Main Content */
@@ -48,29 +49,16 @@ nav a:hover {
     max-width: 1200px;
     margin: 40px auto;
     padding: 30px;
-    background: #fff;
+    background: #E6E1C5; /* Light Gray Background for container */
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-h2, h3 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
 }
 
 /* Individual Post Styles */
 .post {
     margin-bottom: 30px;
     padding: 25px;
-    background: #f9f9f9;
+    background: #ffffff; /* White background for posts */
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -89,7 +77,7 @@ h3 {
 
 /* Footer Styles */
 footer {
-    background: #1e90ff; /* Dodger Blue */
+    background: #003366; /* Navy Blue */
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -114,35 +102,14 @@ button:hover {
     background-color: #ff4500; /* Orange Red */
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-form label {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #ff6347;
-}
-
-form input, form textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    background: #f7fafc;
-    color: #2d3748;
-    transition: border 0.3s ease;
-}
-
-form input:focus, form textarea:focus {
-    border-color: #ff6347;
-    outline: none;
+/* Image Styling for Player */
+.player-image {
+    max-width: 20%;
+    height: 10%;
+    border-radius: 8px; /* Smooth corners for images */
+    display: block;
+    margin: 0 auto;
+    width: 20px;
 }
 
 /* Pagination Styles */
@@ -205,23 +172,6 @@ form input:focus, form textarea:focus {
     cursor: not-allowed;
 }
 
-.pagination .pagination-link:hover,
-.pagination .pagination-disabled:hover {
-    transform: translateY(-2px);  /* Adds a smooth floating effect */
-}
-
-@media (max-width: 768px) {
-    .pagination {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .pagination-link {
-        margin: 5px 0;
-    }
-}
-
-
 /* Contact Page Styles */
 #contact-form {
     display: flex;
@@ -266,21 +216,6 @@ form input:focus, form textarea:focus {
     background-color: #ff4500;
 }
 
-/* Spinner and Response Message */
-#spinner {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ff6347;
-    display: none;
-}
-
-#response-message {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ff6347;
-    display: none;
-}
-
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -291,11 +226,7 @@ form input:focus, form textarea:focus {
         padding: 20px;
     }
 
-    .image-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .pagination a {
+    .pagination-link {
         padding: 10px 15px;
     }
 }

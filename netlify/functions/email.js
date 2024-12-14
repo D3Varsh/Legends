@@ -1,21 +1,32 @@
+const sgMail = require('@sendgrid/mail');
+
 exports.handler = async (event) => {
-  const fetch = (await import('node-fetch')).default;
-  
   if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
   }
 
-  try {
-    if (event.httpMethod !== 'POST') {
-      return {
-        statusCode: 405,
-        body: JSON.stringify({ error: 'Method Not Allowed' }),
-        headers: {
-          'Access-Control-Allow-Origin': '*', // Enable CORS
-        },
-      };
-    }
+  const SENDGRID_API_KEY = process.env.SEND_GRID_API;
 
+  // Configure SendGrid
+  if (!SENDGRID_API_KEY) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'SendGrid API key is missing.' }),
+    };
+  }
+  sgMail.setApiKey(SENDGRID_API_KEY);
+
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: 'Method Not Allowed',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    };
+  }
+
+  try {
     const data = JSON.parse(event.body);
 
     // Validate required fields
@@ -25,61 +36,39 @@ exports.handler = async (event) => {
         statusCode: 400,
         body: JSON.stringify({ error: 'All fields are required.' }),
         headers: {
-          'Access-Control-Allow-Origin': '*', // Enable CORS
+          'Access-Control-Allow-Origin': '*',
         },
       };
     }
 
-    // Set up email API request
-    const emailResponse = await fetch('/.netlify/functions/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': process.env.SEND_GRID_API, // Use environment variable
+    // Create email message
+    const msg = {
+      to: 'devarsh4455@gmail.com', // Replace with your email
+      from: {
+        email: 'devarsh4455@gmail.com', // Replace with your verified sender email
+        name: 'Contact Form',
       },
-      body: JSON.stringify({
-        personalizations: [
-          {
-            to: [
-              { email: 'devarsh4455@gmail.com' },
-            ],
-            subject: `[Contact Form] ${subject}`,
-          },
-        ],
-        from: { email: 'devarsh4455@gmail.com', name: 'Contact Form' },
-        content: [
-          {
-            type: 'text/plain',
-            value: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`,
-          },
-        ],
-      }),
-    });
+      subject: `[Contact Form] ${subject}`,
+      text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`,
+    };
 
-    if (!emailResponse.ok) {
-      const errorDetails = await emailResponse.json();
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Failed to send email', details: errorDetails }),
-        headers: {
-          'Access-Control-Allow-Origin': '*', // Enable CORS
-        },
-      };
-    }
+    // Send the email
+    await sgMail.send(msg);
 
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'Email sent successfully!' }),
       headers: {
-        'Access-Control-Allow-Origin': '*', // Enable CORS
+        'Access-Control-Allow-Origin': '*',
       },
     };
   } catch (error) {
+    console.error('Error sending email:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Internal Server Error', details: error.message }),
       headers: {
-        'Access-Control-Allow-Origin': '*', // Enable CORS
+        'Access-Control-Allow-Origin': '*',
       },
     };
   }
