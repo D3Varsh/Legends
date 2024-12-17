@@ -1,4 +1,6 @@
 const contentful = require('contentful');
+require('dotenv').config();
+
 
 // Initialize Contentful client
 const client = contentful.createClient({

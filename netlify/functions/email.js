@@ -1,4 +1,7 @@
 const sgMail = require('@sendgrid/mail');
+require('dotenv').config();
+
+
 
 exports.handler = async (event) => {
   if (process.env.NODE_ENV !== 'production') {
@@ -43,7 +46,7 @@ exports.handler = async (event) => {
 
     // Create email message
     const msg = {
-      to: 'devarsh4455@gmail.com', // Replace with your email
+      to: ['devarsh4455@gmail.com', 'adam.kunz+inft@durhamcollege.ca'], // Replace with your emails
       from: {
         email: 'devarsh4455@gmail.com', // Replace with your verified sender email
         name: 'Contact Form',
@@ -51,6 +54,7 @@ exports.handler = async (event) => {
       subject: `[Contact Form] ${subject}`,
       text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`,
     };
+    
 
     // Send the email
     await sgMail.send(msg);
