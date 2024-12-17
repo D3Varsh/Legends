@@ -46,7 +46,7 @@ exports.handler = async (event) => {
 
     // Create email message
     const msg = {
-      to: ['devarsh4455@gmail.com'], // Replace with your emails
+      to: ['devarsh4455@gmail.com', 'adam.kunz+inft@durhamcollege.ca'], // Replace with your emails
       from: {
         email: 'devarsh4455@gmail.com', // Replace with your verified sender email
         name: 'Contact Form',
