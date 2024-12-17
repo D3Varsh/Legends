@@ -19,6 +19,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
     "do": "^0.7.0",
     "node-fetch": "^3.3.2"
   }
